@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FitnessApp</string>
+    <string name="welcome_name">Welcome, User!</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+</resources>
