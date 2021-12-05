@@ -3,5 +3,9 @@
     <string name="welcome_name">Welcome, User!</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Login</string>
+    <string name="username">Username</string>
     <string name="forgot_your_password">Forgot your password?</string>
+    <string name="Email_Address">Email Address</string>
+    <string name="Password">Password</string>
+    <string name="Phone">Phone</string>
 </resources>
