@@ -9,8 +9,14 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+    }
+
+    fun setUserRegister(view: View)
+    {
         setContentView(R.layout.activity_register)
     }
+
 
     fun getUserRegistration(view: View)
     {
@@ -22,5 +28,11 @@ class MainActivity : AppCompatActivity() {
         Log.d("password", password)
         Log.d("email", email)
         Log.d("phone", phone)
+        setContentView(R.layout.activity_login)
+    }
+
+    fun loginSucceded(view: View)
+    {
+        setContentView(R.layout.activity_main)
     }
 }
