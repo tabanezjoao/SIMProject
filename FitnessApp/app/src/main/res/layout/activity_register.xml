@@ -19,7 +19,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/editTextUsername"
         app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintVertical_bias="0.35"
+        app:layout_constraintVertical_bias="0.45"
         android:layout_marginBottom="50dp"/>
 
     <EditText
@@ -39,7 +39,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="30dp"
         android:drawableStart="@drawable/ic_person"/>
 
     <EditText
@@ -59,7 +59,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="30dp"
         android:drawableStart="@drawable/ic_lock"/>
 
     <EditText
@@ -79,7 +79,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="30dp"
         android:drawableStart="@drawable/ic_email"/>
 
     <EditText
