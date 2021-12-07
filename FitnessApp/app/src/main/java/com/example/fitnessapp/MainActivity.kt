@@ -12,11 +12,15 @@ import com.example.fitnessapp.database.User
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
+    // esta variavel vai servir para guardar a informaçao princiapl do utilizador
+    var userMain: User? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
     }
 
+    //  Register functions
     fun setUserRegister(view: View)
     {
         setContentView(R.layout.activity_register)
@@ -57,6 +61,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
     }
 
+
+    // login functions
     fun loginProceed(view: View)
     {
         setContentView(R.layout.activity_login_proceed)
@@ -90,7 +96,12 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
+        // guardar a informaçao principal do utilizador
+        userMain = userFound
+
         Log.d("Status","User found!")
         setContentView(R.layout.activity_main)
     }
+
+    // main function
 }

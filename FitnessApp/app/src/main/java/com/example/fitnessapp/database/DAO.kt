@@ -16,4 +16,11 @@ interface MyDao  {
 
     @Query("select * from users where username = :usernameInput")
     fun getUser(usernameInput: String):User
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun addOffice(information: Information?)
+
+    @Transaction
+    @Query("Select * from users where username = :usernameInput")
+    fun getUserAndInformation(usernameInput: String): UserAndInformation
 }
