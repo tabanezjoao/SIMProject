@@ -96,11 +96,22 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
+        Log.d("Status","User found!")
+
         // guardar a informaçao principal do utilizador
         userMain = userFound
 
-        Log.d("Status","User found!")
-        setContentView(R.layout.activity_main)
+        // vamos ver se o utilizador ja tem informaçao preenchida
+        val infoFound = myDatabase.DAO().getUserAndInformation(usernameInput)
+
+        if(infoFound == null)
+        {
+            setContentView(R.layout.activity_information)
+        }
+        else
+        {
+            setContentView(R.layout.activity_main)
+        }
     }
 
     // main function
