@@ -52,7 +52,7 @@
         android:layout_height="48dp"
         android:background="@drawable/custom_button"
         android:text="@string/login"
-        android:onClick="loginSucceded"
+        android:onClick="loginProceed"
         app:backgroundTint="#562197"
         app:layout_constraintBottom_toTopOf="@id/forgot_password_message"
         app:layout_constraintLeft_toLeftOf="parent"

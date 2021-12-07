@@ -5,5 +5,15 @@ import androidx.room.*
 
 @Dao
 interface MyDao  {
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertUser(user: User?)
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertAllUsers(vararg users: User)
+
+    @Query("SELECT * FROM users")
+    fun getAllUsers(): List<User>
+
+    @Query("select * from users where username = :usernameInput")
+    fun getUser(usernameInput: String):User
 }

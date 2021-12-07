@@ -4,7 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import android.widget.TextView
+import androidx.core.view.isVisible
+import com.example.fitnessapp.database.MyDatabase
+import com.example.fitnessapp.database.User
+import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,19 +25,48 @@ class MainActivity : AppCompatActivity() {
 
     fun getUserRegistration(view: View)
     {
-        val username = findViewById<TextView>(R.id.editTextUsername).text.toString()
-        val password = findViewById<TextView>(R.id.editTextPassword).text.toString()
-        val email = findViewById<TextView>(R.id.editTextEmail).text.toString()
-        val phone = findViewById<TextView>(R.id.editTextPhone).text.toString()
-        Log.d("username", username)
-        Log.d("password", password)
-        Log.d("email", email)
-        Log.d("phone", phone)
+        val usernameInput = findViewById<TextView>(R.id.editTextUsername).text.toString()
+        val passwordInput = findViewById<TextView>(R.id.editTextPassword).text.toString()
+        val emailInput = findViewById<TextView>(R.id.editTextEmail).text.toString()
+        val phoneInput = findViewById<TextView>(R.id.editTextPhone).text.toString()
+
+        Log.d("username", usernameInput)
+        Log.d("password", passwordInput)
+        Log.d("email", emailInput)
+        Log.d("phone", phoneInput)
+
+        var myDatabase: MyDatabase = MyDatabase.build(applicationContext)
+
+        val user: User = User(username = usernameInput, password = passwordInput, email = emailInput, phone = phoneInput)
+        myDatabase.DAO().insertUser(user)
+
         setContentView(R.layout.activity_login)
     }
 
-    fun loginSucceded(view: View)
+    fun loginProceed(view: View)
     {
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login_proceed)
+    }
+
+    fun loginSucceed(view: View)
+    {
+        var myDatabase: MyDatabase = MyDatabase.build(applicationContext)
+
+        val usernameInput = findViewById<EditText>(R.id.editTextUsernameLogin).text.toString()
+        val passwordInput = findViewById<EditText>(R.id.editTextPasswordLogin).text.toString()
+        val passwordAlert = findViewById<TextView>(R.id.passwordIncorrect)
+
+        val userFound = myDatabase.DAO().getUser(usernameInput)
+
+        if(userFound.password != passwordInput)
+        {
+            Log.d("Status","User NOT found!")
+            passwordAlert.visibility = View.VISIBLE
+        }
+        else
+        {
+            Log.d("Status","User found!")
+            setContentView(R.layout.activity_main)
+        }
     }
 }

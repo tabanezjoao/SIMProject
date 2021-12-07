@@ -3,7 +3,7 @@ import android.graphics.Bitmap
 import androidx.room.*
 
 
-@Entity(tableName = "users", indices = [Index(value = ["name"],  unique = true)])
+@Entity(tableName = "users", indices = [Index(value = ["username"],  unique = true)])
 data class User(
     @PrimaryKey(autoGenerate = true)
     val userId : Long? = null,
