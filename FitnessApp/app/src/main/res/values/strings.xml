@@ -8,4 +8,6 @@
     <string name="Email_Address">Email Address</string>
     <string name="Password">Password</string>
     <string name="Phone">Phone</string>
+    <string name="male">Male</string>
+    <string name="_0">0</string>
 </resources>

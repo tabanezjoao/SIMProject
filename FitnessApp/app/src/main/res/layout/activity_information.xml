@@ -7,37 +7,46 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textViewHelloUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello User!"
+            android:textSize="20sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/textViewWeNeedSomeInfo"/>
+            app:layout_constraintBottom_toTopOf="@id/textViewWeNeedSomeInfo"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintVertical_bias="0.5"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"/>
 
         <TextView
             android:id="@+id/textViewWeNeedSomeInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="We need some of your information!"
+            android:textSize="17sp"
             app:layout_constraintTop_toBottomOf="@id/textViewHelloUser"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textViewAreYou"/>
+            app:layout_constraintBottom_toTopOf="@+id/textViewAreYou"
+            android:layout_marginBottom="40dp"/>
 
         <TextView
             android:id="@+id/textViewAreYou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Are you....?"
+            android:textSize="17sp"
             app:layout_constraintTop_toBottomOf="@+id/textViewWeNeedSomeInfo"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/layoutSexQuestion" />
+            app:layout_constraintBottom_toTopOf="@+id/layoutSexQuestion"
+            android:layout_marginBottom="5dp"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutSexQuestion"
@@ -46,27 +55,32 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewAreYou"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textViewYourAge">
+            app:layout_constraintBottom_toTopOf="@+id/textViewYourAge"
+            android:layout_marginBottom="30dp">
 
             <Button
                 android:id="@+id/buttonMale"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Male"
+                android:text="@string/male"
                 app:backgroundTint="#562197"
+                android:onClick="maleButtonClick"
+                android:background="@drawable/custom_button"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/buttonFemale"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                android:layout_marginRight="20dp"/>
+                android:layout_marginEnd="20dp"/>
 
             <Button
                 android:id="@+id/buttonFemale"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="Female"
+                android:onClick="femaleButtonClick"
                 app:backgroundTint="#562197"
+                android:background="@drawable/custom_button"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/buttonMale"
                 app:layout_constraintRight_toRightOf="parent"
@@ -79,31 +93,115 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Your age?"
-            tools:layout_editor_absoluteY="58dp"
+            android:textSize="17sp"
             app:layout_constraintTop_toBottomOf="@+id/layoutSexQuestion"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textViewYourHeight"/>
+            app:layout_constraintBottom_toTopOf="@+id/editTextNumberAge"/>
+
+        <EditText
+            android:id="@+id/editTextNumberAge"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:ems="10"
+            android:inputType="number"
+            android:minHeight="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewYourHeight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewYourAge"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textViewYourHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Height?"
-            app:layout_constraintTop_toBottomOf="@+id/textViewYourAge"
+            android:text="Your height?"
+            android:textSize="17sp"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumberAge"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textViewYourWeight"/>
+            app:layout_constraintBottom_toTopOf="@+id/textViewHeight"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/textViewHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 cm"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toTopOf="@+id/seekBarHeight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewYourHeight"
+            android:layout_marginBottom="10dp"/>
+
+        <SeekBar
+            android:id="@+id/seekBarHeight"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:max="250"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/custom_thumb"
+            android:splitTrack="false"
+            app:layout_constraintBottom_toTopOf="@+id/textViewYourWeight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewHeight"
+            />
 
         <TextView
             android:id="@+id/textViewYourWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Weight?"
-            app:layout_constraintTop_toBottomOf="@+id/textViewYourHeight"
+            android:text="Your weight?"
+            android:textSize="17sp"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarHeight"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toTopOf="@+id/textViewWeight"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/textViewWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 Kg"
+            android:textSize="17sp"
+            app:layout_constraintTop_toBottomOf="@+id/textViewYourWeight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/seekBarWeight"
+            android:layout_marginBottom="10dp"/>
+
+        <SeekBar
+            android:id="@+id/seekBarWeight"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:max="200"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/custom_thumb"
+            android:splitTrack="false"
+            app:layout_constraintTop_toBottomOf="@+id/textViewWeight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonFinish"
+            android:layout_marginBottom="50dp"/>
+
+        <Button
+            android:id="@+id/buttonFinish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finish"
+            app:layout_constraintTop_toBottomOf="@+id/seekBarWeight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="70dp"
+            app:backgroundTint="#562197"
+            android:background="@drawable/custom_button"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
