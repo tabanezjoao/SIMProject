@@ -115,6 +115,7 @@ class MainActivity : AppCompatActivity() {
             infoFound = myDatabase.DAO().getInformation(userFound.userId!!)
         }
 
+        // nao existe entitie information
         if(infoFound == null)
         {
             setContentView(R.layout.activity_information)
