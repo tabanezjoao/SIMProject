@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         val userFound = myDatabase.DAO().getUser(usernameInput)
 
         // se ja existe registado algum user com o username introduzido
-        if(userFound.username != null)
+        if(userFound != null)
         {
             usernameAlert.visibility = View.VISIBLE
             return
@@ -98,8 +98,8 @@ class MainActivity : AppCompatActivity() {
 
         // se a password for incorreta vamos avisar
         if(userFound.password != passwordInput) {
-            Log.d("Status", "User NOT found!")
-            passwordAlert.setText("Username not found!")
+            Log.d("Status", "Password not correct!")
+            passwordAlert.setText("Password not correct!")
             passwordAlert.visibility = View.VISIBLE
             return
         }
