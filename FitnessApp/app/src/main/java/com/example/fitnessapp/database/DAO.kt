@@ -18,7 +18,7 @@ interface MyDao  {
     fun getUser(usernameInput: String):User
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addOffice(information: Information?)
+    fun insertInformation(information: Information?)
 
     @Query("select * from information where userId = :userId")
     fun getInformation(userId: Long):Information

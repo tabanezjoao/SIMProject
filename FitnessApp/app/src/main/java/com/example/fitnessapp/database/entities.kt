@@ -1,5 +1,5 @@
 package com.example.fitnessapp.database
-import android.graphics.Bitmap
+import android.widget.EditText
 import androidx.room.*
 
 
@@ -18,7 +18,7 @@ data class Information(
     @PrimaryKey(autoGenerate = true)
     var informationId: Long? = null,
     var age: Long?,
-    var height: Long? ,
+    var height: Long?,
     var weight: Long?,
     var gender: String?,
     var userId: Long?

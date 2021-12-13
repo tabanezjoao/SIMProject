@@ -10,12 +10,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
-import androidx.core.view.isVisible
 import com.example.fitnessapp.database.Information
 import com.example.fitnessapp.database.MyDatabase
 import com.example.fitnessapp.database.User
-import org.w3c.dom.Text
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
     // esta variavel vai servir para guardar a informaçao princiapl do utilizador
@@ -36,10 +33,10 @@ class MainActivity : AppCompatActivity() {
     fun getUserRegistration(view: View)
     {
         // vamos buscar o input introduzido pelo utilizador
-        val usernameInput = findViewById<TextView>(R.id.editTextUsername).text.toString()
-        val passwordInput = findViewById<TextView>(R.id.editTextPassword).text.toString()
-        val emailInput = findViewById<TextView>(R.id.editTextEmail).text.toString()
-        val phoneInput = findViewById<TextView>(R.id.editTextPhone).text.toString()
+        val usernameInput = findViewById<EditText>(R.id.editTextUsername).text.toString()
+        val passwordInput = findViewById<EditText>(R.id.editTextPassword).text.toString()
+        val emailInput = findViewById<EditText>(R.id.editTextEmail).text.toString()
+        val phoneInput = findViewById<EditText>(R.id.editTextPhone).text.toString()
         val usernameAlert = findViewById<TextView>(R.id.textViewUsernameIncorrect)
 
         Log.d("username", usernameInput)
@@ -177,5 +174,37 @@ class MainActivity : AppCompatActivity() {
         var femaleButton = findViewById<Button>(R.id.buttonFemale)
         maleButton.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#562197"))
         femaleButton.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#3952FB"))
+    }
+
+    fun submitInformation(view: View)
+    {
+        var myDatabase: MyDatabase = MyDatabase.build(applicationContext)
+        var seekBarHeight = findViewById<SeekBar>(R.id.seekBarHeight)
+        var seekBarWeight = findViewById<SeekBar>(R.id.seekBarWeight)
+        var age = findViewById<EditText>(R.id.editTextNumberAge)
+        var maleButton = findViewById<Button>(R.id.buttonMale)
+        var femaleButton = findViewById<Button>(R.id.buttonFemale)
+        var gender: String? = null
+
+        if(maleButton.backgroundTintList == ColorStateList.valueOf(Color.parseColor("#3952FB")))
+        {
+            gender = "Male"
+        }
+        else if(femaleButton.backgroundTintList == ColorStateList.valueOf(Color.parseColor("#3952FB")))
+        {
+            gender = "Female"
+        }
+
+        val info: Information = Information(age= age.text.toString().toLong(), height = seekBarHeight.progress.toString().toLong(), weight = seekBarWeight.progress.toString().toLong(), gender = gender, userId = userMain?.userId)
+
+        Log.d("Utilizador", "Exameplo")
+        Log.d("Age", info.age.toString())
+        Log.d("Height", info.height.toString())
+        Log.d("Weight", info.weight.toString())
+        info.gender?.let { Log.d("Gender", it) }
+
+        myDatabase.DAO().insertInformation(info)
+
+        setContentView(R.layout.activity_main)
     }
 }
