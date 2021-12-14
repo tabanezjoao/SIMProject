@@ -2,6 +2,7 @@ package com.example.fitnessapp
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,9 +11,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import com.example.fitnessapp.database.Information
 import com.example.fitnessapp.database.MyDatabase
 import com.example.fitnessapp.database.User
+import java.time.LocalDate
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     // esta variavel vai servir para guardar a informaçao princiapl do utilizador
@@ -106,7 +110,7 @@ class MainActivity : AppCompatActivity() {
         // guardar a informaçao principal do utilizador
         userMain = userFound
 
-        // vamos ver se o utilizador ja tem informaçao preenchid
+        // vamos ver se o utilizador ja tem informaçao preenchida
         if(userFound.userId != null)
         {
             infoFound = myDatabase.DAO().getInformation(userFound.userId!!)
@@ -157,6 +161,8 @@ class MainActivity : AppCompatActivity() {
         else
         {
             setContentView(R.layout.activity_main)
+            var helloUser = findViewById<TextView>(R.id.textViewGreet)
+            helloUser.setText("Hi " + userFound.username)
         }
     }
 
@@ -176,6 +182,7 @@ class MainActivity : AppCompatActivity() {
         femaleButton.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#3952FB"))
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun submitInformation(view: View)
     {
         var myDatabase: MyDatabase = MyDatabase.build(applicationContext)
@@ -206,5 +213,8 @@ class MainActivity : AppCompatActivity() {
         myDatabase.DAO().insertInformation(info)
 
         setContentView(R.layout.activity_main)
+
+        var helloUser = findViewById<TextView>(R.id.textViewGreet)
+        helloUser.setText("Hi " + userMain?.username)
     }
 }
