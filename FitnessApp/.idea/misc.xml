@@ -11,17 +11,22 @@
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/custom_input.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/custom_thumb.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/ic_email.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/ic_home.xml" value="0.2601851851851852" />
+        <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2733333333333333" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/ic_lock.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/ic_person.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/ic_person2.xml" value="0.2601851851851852" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/ic_phone.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/ic_settings.xml" value="0.2601851851851852" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/seekbar_progress.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/seekbar_shadow.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/drawable/seekbar_style.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/layout/activity_information.xml" value="0.33" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/layout/activity_login.xml" value="0.240625" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/layout/activity_login_proceed.xml" value="0.25" />
-        <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Users/mykyt/Documents/Faculdade/SIM/SIMProject/SIMProject/FitnessApp/app/src/main/res/menu/menu.xml" value="0.22" />
       </map>
     </option>
   </component>
