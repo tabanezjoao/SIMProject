@@ -170,16 +170,14 @@ class MainActivity : AppCompatActivity() {
         else
         {
             setContentView(R.layout.activity_main)
-            replaceFragment(homeFragment)
-            var helloUser = findViewById<TextView>(R.id.textViewGreet)
-            //helloUser.setText("Hi " + userFound.username)
+            replaceWithHomeFragment(homeFragment)
 
             var navBar = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
             navBar.setOnItemSelectedListener {
                 when(it.itemId){
                     R.id.ic_person -> replaceFragment(profileFragment)
-                    R.id.ic_home -> replaceFragment(homeFragment)
+                    R.id.ic_home -> replaceWithHomeFragment(homeFragment)
                     R.id.ic_settings -> replaceFragment(settingsFragment)
                 }
                 return@setOnItemSelectedListener true
@@ -237,16 +235,25 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         replaceFragment(homeFragment)
-        var helloUser = findViewById<TextView>(R.id.textViewGreet)
-        //helloUser.setText("Hi " + userMain?.username)
 
         findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener {
             when(it.itemId){
                 R.id.ic_person -> replaceFragment(profileFragment)
-                R.id.ic_home -> replaceFragment(homeFragment)
+                R.id.ic_home -> replaceWithHomeFragment(homeFragment)
                 R.id.ic_settings -> replaceFragment(settingsFragment)
             }
             return@setOnItemSelectedListener true
+        }
+    }
+
+    private fun replaceWithHomeFragment(fragment : HomeFragment)
+    {
+        if(fragment != null)
+        {
+            val transaction = supportFragmentManager.beginTransaction()
+            userMain?.let { fragment.setUser(it) }
+            transaction.replace(R.id.fragment_container, fragment)
+            transaction.commit()
         }
     }
 
