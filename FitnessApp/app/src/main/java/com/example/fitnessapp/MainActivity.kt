@@ -12,15 +12,24 @@ import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import com.example.fitnessapp.database.Information
 import com.example.fitnessapp.database.MyDatabase
 import com.example.fitnessapp.database.User
+import com.example.fitnessapp.fragments.HomeFragment
+import com.example.fitnessapp.fragments.ProfileFragment
+import com.example.fitnessapp.fragments.SettingsFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.time.LocalDate
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
     // esta variavel vai servir para guardar a informaçao princiapl do utilizador
     var userMain: User? = null
+
+    private val homeFragment = HomeFragment()
+    private val profileFragment = ProfileFragment()
+    private val settingsFragment = SettingsFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -161,8 +170,18 @@ class MainActivity : AppCompatActivity() {
         else
         {
             setContentView(R.layout.activity_main)
+            replaceFragment(homeFragment)
             var helloUser = findViewById<TextView>(R.id.textViewGreet)
-            helloUser.setText("Hi " + userFound.username)
+            //helloUser.setText("Hi " + userFound.username)
+
+            findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener {
+                when(it.itemId){
+                    R.id.ic_person -> replaceFragment(profileFragment)
+                    R.id.ic_home -> replaceFragment(homeFragment)
+                    R.id.ic_settings -> replaceFragment(settingsFragment)
+                }
+                return@setOnItemSelectedListener true
+            }
         }
     }
 
@@ -213,8 +232,27 @@ class MainActivity : AppCompatActivity() {
         myDatabase.DAO().insertInformation(info)
 
         setContentView(R.layout.activity_main)
-
+        replaceFragment(homeFragment)
         var helloUser = findViewById<TextView>(R.id.textViewGreet)
-        helloUser.setText("Hi " + userMain?.username)
+        //helloUser.setText("Hi " + userMain?.username)
+
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.ic_person -> replaceFragment(profileFragment)
+                R.id.ic_home -> replaceFragment(homeFragment)
+                R.id.ic_settings -> replaceFragment(settingsFragment)
+            }
+            return@setOnItemSelectedListener true
+        }
+    }
+
+    private fun replaceFragment(fragment : Fragment)
+    {
+        if(fragment != null)
+        {
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, fragment)
+            transaction.commit()
+        }
     }
 }
