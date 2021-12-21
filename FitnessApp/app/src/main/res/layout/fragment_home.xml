@@ -64,7 +64,7 @@
             android:id="@+id/cardViewCalories"
             android:layout_width="160dp"
             android:layout_height="190dp"
-            android:backgroundTint="#BA4A31A3"
+            android:backgroundTint="#BA6846E1"
             app:cardCornerRadius="15dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -92,12 +92,16 @@
                 <ProgressBar
                     android:id="@+id/progressBarCalories"
                     style="?android:attr/progressBarStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:progressDrawable="@drawable/custom_calories_progress"
+                    android:indeterminateOnly="false"
+                    android:progress="40"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     app:layout_constraintTop_toBottomOf="@id/textViewCalories"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/textViewCaloriesValue"/>
+                    app:layout_constraintBottom_toTopOf="@+id/textViewCaloriesValue"
+                    />
 
                 <TextView
                     android:id="@+id/textViewCaloriesValue"
@@ -160,7 +164,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/progressBarKg"
                     app:layout_constraintHorizontal_bias="0.2"/>
 
-                <ProgressBar
+                <ImageView
                     android:id="@+id/progressBarKg"
                     style="?android:attr/progressBarStyle"
                     android:layout_width="wrap_content"
@@ -168,6 +172,7 @@
                     app:layout_constraintTop_toBottomOf="@id/textViewKg"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
+                    android:src="@drawable/weight"
                     app:layout_constraintBottom_toTopOf="@+id/textViewKgValue"/>
 
                 <TextView
@@ -204,7 +209,7 @@
             android:id="@+id/cardViewWater"
             android:layout_width="160dp"
             android:layout_height="190dp"
-            android:backgroundTint="#5676EC"
+            android:backgroundTint="#5172EA"
             app:cardCornerRadius="15dp"
             app:layout_constraintTop_toBottomOf="@id/cardViewCalories"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -228,7 +233,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/progressBarWater"
                     app:layout_constraintHorizontal_bias="0.2"/>
 
-                <ProgressBar
+                <ImageView
                     android:id="@+id/progressBarWater"
                     style="?android:attr/progressBarStyle"
                     android:layout_width="wrap_content"
@@ -236,7 +241,8 @@
                     app:layout_constraintTop_toBottomOf="@id/textViewWater"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/textViewWaterValue" />
+                    app:layout_constraintBottom_toTopOf="@+id/textViewWaterValue"
+                    android:src="@drawable/water"/>
 
                 <TextView
                     android:id="@+id/textViewWaterValue"
@@ -299,8 +305,11 @@
                 <ProgressBar
                     android:id="@+id/progressBarSteps"
                     style="?android:attr/progressBarStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:progressDrawable="@drawable/custom_steps_progress"
+                    android:indeterminateOnly="false"
+                    android:progress="70"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
                     app:layout_constraintTop_toBottomOf="@id/textViewSteps"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"

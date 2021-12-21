@@ -174,7 +174,9 @@ class MainActivity : AppCompatActivity() {
             var helloUser = findViewById<TextView>(R.id.textViewGreet)
             //helloUser.setText("Hi " + userFound.username)
 
-            findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnItemSelectedListener {
+            var navBar = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+            navBar.setOnItemSelectedListener {
                 when(it.itemId){
                     R.id.ic_person -> replaceFragment(profileFragment)
                     R.id.ic_home -> replaceFragment(homeFragment)
@@ -182,6 +184,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 return@setOnItemSelectedListener true
             }
+
+
         }
     }
 
