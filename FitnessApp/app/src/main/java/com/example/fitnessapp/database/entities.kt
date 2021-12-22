@@ -1,6 +1,7 @@
 package com.example.fitnessapp.database
 import android.widget.EditText
 import androidx.room.*
+import java.io.Serializable
 
 
 @Entity(tableName = "users", indices = [Index(value = ["username"],  unique = true)])
@@ -11,7 +12,7 @@ data class User(
     var password: String? = null,
     var email: String? = null,
     var phone : String? = null,
-)
+) : Serializable
 
 @Entity
 data class Information(

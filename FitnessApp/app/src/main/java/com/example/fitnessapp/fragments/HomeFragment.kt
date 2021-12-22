@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
         val month_date = SimpleDateFormat("EEE dd MMM")
         val month_name: String = month_date.format(rightNow.getTime())
         var date = v.findViewById<TextView>(R.id.textViewDate)
-        date.setText(month_name)
+        date.text = month_name
 
         return v
     }
