@@ -28,4 +28,10 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this, LoginProceedActivity::class.java)
         startActivity(intent)
     }
+
+    fun passwordRecovery(view: View)
+    {
+        val intent = Intent(this, PasswordRecoveryActivity::class.java)
+        startActivity(intent)
+    }
 }

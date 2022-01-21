@@ -17,6 +17,9 @@ interface MyDao  {
     @Query("select * from users where username = :usernameInput")
     fun getUser(usernameInput: String):User
 
+    @Update
+    fun updateUser(user: User?)
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertInformation(information: Information?)
 
@@ -26,4 +29,6 @@ interface MyDao  {
     @Transaction
     @Query("Select * from users where username = :usernameInput")
     fun getUserAndInformation(usernameInput: String): UserAndInformation
+
+
 }
