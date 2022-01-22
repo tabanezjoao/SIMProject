@@ -1,6 +1,7 @@
 package com.example.fitnessapp
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -20,6 +21,7 @@ import com.example.fitnessapp.fragments.HomeFragment
 import com.example.fitnessapp.fragments.ProfileFragment
 import com.example.fitnessapp.fragments.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.io.Serializable
 import java.time.LocalDate
 import java.util.*
 
@@ -127,5 +129,12 @@ class MainActivity : AppCompatActivity() {
         if (ActivityCompat.checkSelfPermission(this, permission ) != PackageManager.PERMISSION_GRANTED)
             return false
         return true
+    }
+
+    fun addWater(view: View)
+    {
+        val intent = Intent(this, WaterActivity::class.java)
+        intent.putExtra("user", userMain as Serializable)
+        startActivity(intent)
     }
 }

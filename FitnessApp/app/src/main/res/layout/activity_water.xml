@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WaterActivity">
+
+    <TextView
+        android:id="@+id/textViewHydration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hydration"
+        android:textSize="15sp"
+        android:textColor="#BA6846E1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textViewHydrationSentence"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.5"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:id="@+id/textViewHydrationSentence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Today you took\n0 ml of water!"
+        android:textSize="17sp"
+        android:textColor="#BA000000"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/textViewHydration"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewHydrationMotivation"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewHydrationMotivation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keep hydrated!"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/textViewHydrationSentence"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/progressBarHydration"
+        android:layout_marginBottom="40dp"  />
+
+    <ProgressBar
+        android:id="@+id/progressBarHydration"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="40dp"
+        android:progressDrawable="@drawable/custom_progressbar"
+        android:max="3000"
+        android:progress="0"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayoutHydration"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewHydrationMotivation" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutHydration"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="295dp"
+        app:layout_constraintTop_toBottomOf="@id/progressBarHydration"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutHydration2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textViewHydrationQuantity"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintVertical_bias="0.0">
+
+            <Button
+                android:id="@+id/buttonHydrationSub"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:onClick="subCupWater"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/HydrationIcon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:backgroundTint="#562197"/>
+
+            <ImageView
+                android:id="@+id/HydrationIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_drink"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/buttonHydrationSub"
+                app:layout_constraintRight_toLeftOf="@id/buttonHydartionPlus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginHorizontal="40dp"/>
+
+            <Button
+                android:id="@+id/buttonHydartionPlus"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:onClick="addCupWater"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/HydrationIcon"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:backgroundTint="#562197"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textViewHydrationQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1x Glass 200 ml"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayoutHydration2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAddHydration"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/buttonAddHydration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Water"
+            android:onClick="submitCupWater"
+            app:layout_constraintTop_toBottomOf="@+id/textViewHydrationQuantity"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/custom_button"
+            app:backgroundTint="#562197"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

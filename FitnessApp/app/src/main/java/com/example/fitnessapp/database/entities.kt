@@ -34,6 +34,15 @@ data class Weight(
     var informationId: Long? = null
 )
 
+@Entity
+data class Water(
+    @PrimaryKey(autoGenerate = true)
+    var waterId: Long? = null,
+    var water: Long? = null,
+    var date: Date? = null,
+    var userId: Long? = null
+)
+
 // 1 -- 1 relationship: 1 user, 1 information
 data class UserAndInformation(
     @Embedded val user: User,
@@ -52,6 +61,16 @@ data class InformationWithWeight(
         entityColumn = "informationId"
     )
     val weights: List<Weight>
+)
+
+// 1 -- N relationship: 1 user, N Water
+data class userWithWater(
+    @Embedded val user: User,
+    @Relation(
+        parentColumn = "userId",
+        entityColumn = "userId"
+    )
+    val waters: List<Water>
 )
 
 class Converters {

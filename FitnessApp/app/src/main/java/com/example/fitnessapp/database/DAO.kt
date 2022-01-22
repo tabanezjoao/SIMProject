@@ -39,4 +39,16 @@ interface MyDao  {
 
     @Query("select * from weight")
     fun getAllWeights(): List<Weight>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertWaters(vararg waters: Water)
+
+    @Query("select * from Water where date = :dateInput")
+    fun getWater(dateInput: Date):Water
+
+    @Query("select * from Water where userId = :userInput")
+    fun getWatersWithUserId(userInput: Long): List<Water>
+
+    @Query("select * from water")
+    fun getAllWaters(): List<Water>
 }
