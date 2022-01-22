@@ -17,17 +17,21 @@ import androidx.fragment.app.Fragment
 import com.example.fitnessapp.database.Information
 import com.example.fitnessapp.database.MyDatabase
 import com.example.fitnessapp.database.User
+import com.example.fitnessapp.database.Water
 import com.example.fitnessapp.fragments.HomeFragment
 import com.example.fitnessapp.fragments.ProfileFragment
 import com.example.fitnessapp.fragments.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.Serializable
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
     // esta variavel vai servir para guardar a informaçao princiapl do utilizador
     var userMain: User? = null
+
+    var waterValue: Long = 0
 
     companion object {
         public var permissionsGranted = false

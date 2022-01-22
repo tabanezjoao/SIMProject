@@ -1,5 +1,6 @@
 package com.example.fitnessapp.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.fitnessapp.R
+import com.example.fitnessapp.database.MyDatabase
 import com.example.fitnessapp.database.User
+import com.example.fitnessapp.database.Water
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -50,7 +53,68 @@ class HomeFragment : Fragment() {
         var date = v.findViewById<TextView>(R.id.textViewDate)
         date.text = month_name
 
+        var myDatabase: MyDatabase = MyDatabase.build(v.context)
+
+        var waters: List<Water>? = userMain?.userId?.let { myDatabase.DAO().getWatersWithUserId(it) }
+
+        var waterValue: Long = 0
+
+        if(waters != null)
+        {
+            // queremos mostrar a informaçao caso ja tenhamos uma quantidade de agua adicionada
+            var rightNow = Calendar.getInstance()
+            var day_date = SimpleDateFormat("dd")
+            var day_now: Int = day_date.format(rightNow.getTime()).toInt()
+
+            var day_water: Int
+
+            waters.forEach {
+                day_water = day_date.format(Calendar.getInstance().getTime()).toInt()
+                if(day_water == day_now)
+                {
+                    waterValue += it.water!!
+                }
+            }
+
+            var waterValueText = v.findViewById<TextView>(R.id.textViewWaterValue)
+
+            waterValueText.text = waterValue.toString()
+        }
+
         return v
+    }
+
+    override fun onResume() {
+        var myDatabase: MyDatabase? = view?.let { MyDatabase.build(it.context) }
+
+        var waters: List<Water>? = userMain?.userId?.let { myDatabase?.DAO()?.getWatersWithUserId(it) }
+
+        var waterValue: Long = 0
+
+        if(waters != null)
+        {
+            // queremos mostrar a informaçao caso ja tenhamos uma quantidade de agua adicionada
+            var rightNow = Calendar.getInstance()
+            var day_date = SimpleDateFormat("dd")
+            var day_now: Int = day_date.format(rightNow.getTime()).toInt()
+
+            var day_water: Int
+
+            waters.forEach {
+                day_water = day_date.format(Calendar.getInstance().getTime()).toInt()
+                if(day_water == day_now)
+                {
+                    waterValue += it.water!!
+                }
+            }
+
+            var waterValueText = view?.findViewById<TextView>(R.id.textViewWaterValue)
+
+            if (waterValueText != null) {
+                waterValueText.text = waterValue.toString()
+            }
+        }
+        super.onResume()
     }
 
     public fun setUser(userFromActivity: User)

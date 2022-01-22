@@ -1,5 +1,6 @@
 package com.example.fitnessapp
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import android.widget.TextView
 import com.example.fitnessapp.database.MyDatabase
 import com.example.fitnessapp.database.User
 import com.example.fitnessapp.database.Water
+import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.util.*
 
