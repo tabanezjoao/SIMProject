@@ -16,7 +16,9 @@ import androidx.annotation.RequiresApi
 import com.example.fitnessapp.database.Information
 import com.example.fitnessapp.database.MyDatabase
 import com.example.fitnessapp.database.User
+import com.example.fitnessapp.database.Weight
 import java.io.Serializable
+import java.util.*
 
 class InformationActivity : AppCompatActivity() {
     var userMain: User? = null
@@ -103,15 +105,22 @@ class InformationActivity : AppCompatActivity() {
             gender = "Female"
         }
 
-        val info: Information = Information(age= age.text.toString().toLong(), height = seekBarHeight.progress.toString().toLong(), weight = seekBarWeight.progress.toString().toLong(), gender = gender, userId = userMain?.userId)
+        var info: Information = Information(age= age.text.toString().toLong(), height = seekBarHeight.progress.toString().toLong(), gender = gender, userId = userMain?.userId)
 
         Log.d("Utilizador", "Exameplo")
         Log.d("Age", info.age.toString())
         Log.d("Height", info.height.toString())
-        Log.d("Weight", info.weight.toString())
         info.gender?.let { Log.d("Gender", it) }
 
         myDatabase.DAO().insertInformation(info)
+
+        info = userMain?.userId?.let { myDatabase.DAO().getInformation(it) }!!
+
+        var weight: Weight = Weight(date = Calendar.getInstance().getTime(), informationId = info.informationId, weight = seekBarWeight.progress.toString().toLong())
+
+        Log.d("Weight", weight.weight.toString())
+
+        myDatabase.DAO().insertWeights(weight)
 
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("user", userMain as Serializable)

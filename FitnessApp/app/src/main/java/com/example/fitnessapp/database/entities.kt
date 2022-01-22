@@ -19,18 +19,19 @@ data class User(
 data class Information(
     @PrimaryKey(autoGenerate = true)
     var informationId: Long? = null,
-    var age: Long?,
-    var height: Long?,
-    var gender: String?,
-    var userId: Long?
+    var age: Long? = null,
+    var height: Long? = null,
+    var gender: String? = null,
+    var userId: Long? = null
 )
 
 @Entity
 data class Weight(
     @PrimaryKey(autoGenerate = true)
     var weightId: Long? = null,
-    var date: Calendar?,
-    var informationId: Long?
+    var weight: Long? = null,
+    var date: Date? = null,
+    var informationId: Long? = null
 )
 
 // 1 -- 1 relationship: 1 user, 1 information
@@ -52,3 +53,16 @@ data class InformationWithWeight(
     )
     val weights: List<Weight>
 )
+
+class Converters {
+    @TypeConverter
+    fun fromTimestamp(value: Long?): Date? {
+        return value?.let { Date(it) }
+    }
+
+    @TypeConverter
+    fun dateToTimestamp(date: Date?): Long? {
+        return date?.time?.toLong()
+    }
+}
+

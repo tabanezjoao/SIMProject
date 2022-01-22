@@ -1,6 +1,7 @@
 package com.example.fitnessapp.database
 
 import androidx.room.*
+import java.util.*
 
 
 @Dao
@@ -30,5 +31,12 @@ interface MyDao  {
     @Query("Select * from users where username = :usernameInput")
     fun getUserAndInformation(usernameInput: String): UserAndInformation
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertWeights(vararg weights: Weight)
 
+    @Query("select * from weight where date = :dateInput")
+    fun getWeight(dateInput: Date):Weight
+
+    @Query("select * from weight")
+    fun getAllWeights(): List<Weight>
 }
