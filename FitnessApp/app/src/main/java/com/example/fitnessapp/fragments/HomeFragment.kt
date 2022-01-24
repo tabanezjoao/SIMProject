@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import com.example.fitnessapp.R
+import com.example.fitnessapp.SharedViewModel
 import com.example.fitnessapp.database.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,6 +30,7 @@ class HomeFragment : Fragment() {
     private var userMain: User? = null
     private var param1: String? = null
     private var param2: String? = null
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +56,29 @@ class HomeFragment : Fragment() {
         date.text = month_name
 
         updateMetrics()
+
+        var stepsText = view?.findViewById<TextView>(R.id.textViewStepsValue)
+        var stepsProgressBar = view?.findViewById<ProgressBar>(R.id.progressBarSteps)
+
+        sharedViewModel.sensorModel.currentSteps.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            if (stepsText != null) {
+                stepsText.text = ""+ it
+            }
+
+            if (stepsProgressBar != null) {
+                if(stepsProgressBar.progress <= stepsProgressBar.max) {
+                    stepsProgressBar.progress = it
+                }
+            }
+
+            sharedViewModel.incValor()
+        })
+
+        sharedViewModel.valorInteiro.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            if (stepsText != null) {
+                stepsText.text = "" + it
+            }
+        })
 
         return v
     }
@@ -158,10 +184,12 @@ class HomeFragment : Fragment() {
         }
     }
 
+
+
     override fun onResume() {
 
         updateMetrics()
-
+        sharedViewModel.sensorModel.setRunningState(true)
         super.onResume()
     }
 

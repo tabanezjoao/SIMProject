@@ -153,4 +153,9 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("user", userMain as Serializable)
         startActivity(intent)
     }
+
+    override fun onResume() {
+        super.onResume()
+
+    }
 }
