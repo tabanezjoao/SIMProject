@@ -31,8 +31,6 @@ class MainActivity : AppCompatActivity() {
     // esta variavel vai servir para guardar a informaçao princiapl do utilizador
     var userMain: User? = null
 
-    var waterValue: Long = 0
-
     companion object {
         public var permissionsGranted = false
     }
@@ -138,6 +136,20 @@ class MainActivity : AppCompatActivity() {
     fun addWater(view: View)
     {
         val intent = Intent(this, WaterActivity::class.java)
+        intent.putExtra("user", userMain as Serializable)
+        startActivity(intent)
+    }
+
+    fun addWeight(view: View)
+    {
+        val intent = Intent(this, WeightActivity::class.java)
+        intent.putExtra("user", userMain as Serializable)
+        startActivity(intent)
+    }
+
+    fun addCalories(view: View)
+    {
+        val intent = Intent(this, CaloriesActivity::class.java)
         intent.putExtra("user", userMain as Serializable)
         startActivity(intent)
     }

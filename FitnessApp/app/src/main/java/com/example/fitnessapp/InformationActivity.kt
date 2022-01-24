@@ -96,16 +96,30 @@ class InformationActivity : AppCompatActivity() {
         var femaleButton = findViewById<Button>(R.id.buttonFemale)
         var gender: String? = null
 
+        var waterIntake: Long = 0
+
+        var calorieIntake: Long = 0
+
         if(maleButton.backgroundTintList == ColorStateList.valueOf(Color.parseColor("#3952FB")))
         {
             gender = "Male"
+            waterIntake = 3800
+            calorieIntake = (66.47 + (13.75 * seekBarWeight.progress.toString().toLong()) + (5.003 * seekBarHeight.progress.toString().toLong()) - (6.755 * age.text.toString().toLong())).toLong()
+            calorieIntake *= (1.375).toLong()
         }
         else if(femaleButton.backgroundTintList == ColorStateList.valueOf(Color.parseColor("#3952FB")))
         {
             gender = "Female"
+            waterIntake = 2800
+            calorieIntake = (655.1 + (9.563 * seekBarWeight.progress.toString().toLong()) + (1.850 * seekBarHeight.progress.toString().toLong()) - (4.676 * age.text.toString().toLong())).toLong()
+            calorieIntake *= (1.375).toLong()
+        }
+        else
+        {
+            return
         }
 
-        var info: Information = Information(age= age.text.toString().toLong(), height = seekBarHeight.progress.toString().toLong(), gender = gender, userId = userMain?.userId)
+        var info: Information = Information(caloriesIntake = calorieIntake,waterIntake = waterIntake , age= age.text.toString().toLong(), height = seekBarHeight.progress.toString().toLong(), gender = gender, userId = userMain?.userId)
 
         Log.d("Utilizador", "Exameplo")
         Log.d("Age", info.age.toString())
@@ -116,7 +130,7 @@ class InformationActivity : AppCompatActivity() {
 
         info = userMain?.userId?.let { myDatabase.DAO().getInformation(it) }!!
 
-        var weight: Weight = Weight(date = Calendar.getInstance().getTime(), informationId = info.informationId, weight = seekBarWeight.progress.toString().toLong())
+        var weight: Weight = Weight(date = Calendar.getInstance().getTime(), userId = userMain?.userId , weight = seekBarWeight.progress.toString().toLong())
 
         Log.d("Weight", weight.weight.toString())
 

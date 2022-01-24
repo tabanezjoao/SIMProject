@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WeightActivity">
+
+    <TextView
+        android:id="@+id/textviewWeightTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight"
+        android:textSize="15sp"
+        android:textColor="#BA6846E1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textViewCaloriesSentence"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.45"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:id="@+id/textViewCaloriesSentence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tell us, what is your weight?"
+        android:textSize="17sp"
+        android:textColor="#BA000000"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/textviewWeightTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textViewAlertWeight"
+         />
+
+    <TextView
+        android:id="@+id/textViewAlertWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight was updated!"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/textViewCaloriesSentence"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumberCaloriesIntake"
+        android:layout_marginBottom="40dp" />
+
+    <EditText
+        android:id="@+id/editTextNumberCaloriesIntake"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSubmitCalories"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewAlertWeight"
+        android:layout_marginBottom="50dp"/>
+
+    <Button
+        android:id="@+id/buttonSubmitCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="submitWeight"
+        android:text="Add weight"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberCaloriesIntake"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/custom_button"
+        app:backgroundTint="#562197" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

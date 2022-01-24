@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessApp">
         <activity
+            android:name=".CaloriesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".WeightActivity"
+            android:exported="true" />
+        <activity
             android:name=".WaterActivity"
             android:exported="true" />
         <activity

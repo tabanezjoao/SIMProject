@@ -6,11 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import com.example.fitnessapp.R
-import com.example.fitnessapp.database.MyDatabase
-import com.example.fitnessapp.database.User
-import com.example.fitnessapp.database.Water
+import com.example.fitnessapp.database.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -53,39 +52,16 @@ class HomeFragment : Fragment() {
         var date = v.findViewById<TextView>(R.id.textViewDate)
         date.text = month_name
 
-        var myDatabase: MyDatabase = MyDatabase.build(v.context)
-
-        var waters: List<Water>? = userMain?.userId?.let { myDatabase.DAO().getWatersWithUserId(it) }
-
-        var waterValue: Long = 0
-
-        if(waters != null)
-        {
-            // queremos mostrar a informaçao caso ja tenhamos uma quantidade de agua adicionada
-            var rightNow = Calendar.getInstance()
-            var day_date = SimpleDateFormat("dd")
-            var day_now: Int = day_date.format(rightNow.getTime()).toInt()
-
-            var day_water: Int
-
-            waters.forEach {
-                day_water = day_date.format(Calendar.getInstance().getTime()).toInt()
-                if(day_water == day_now)
-                {
-                    waterValue += it.water!!
-                }
-            }
-
-            var waterValueText = v.findViewById<TextView>(R.id.textViewWaterValue)
-
-            waterValueText.text = waterValue.toString()
-        }
+        updateMetrics()
 
         return v
     }
 
-    override fun onResume() {
+    private fun updateMetrics()
+    {
         var myDatabase: MyDatabase? = view?.let { MyDatabase.build(it.context) }
+
+        var info: Information? = userMain!!.userId?.let { myDatabase?.DAO()?.getInformation(it) }
 
         var waters: List<Water>? = userMain?.userId?.let { myDatabase?.DAO()?.getWatersWithUserId(it) }
 
@@ -114,6 +90,78 @@ class HomeFragment : Fragment() {
                 waterValueText.text = waterValue.toString()
             }
         }
+
+        var weights: List<Weight>? = userMain?.userId?.let { myDatabase?.DAO()?.getWeightWithUserId(it) }
+
+        var weightValue: Long = 0
+
+        if(weights != null)
+        {
+            // queremos mostrar a informaçao caso ja tenhamos uma quantidade de agua adicionada
+            var rightNow = Calendar.getInstance()
+            var day_date = SimpleDateFormat("dd")
+            var day_now: Int = day_date.format(rightNow.getTime()).toInt()
+
+            var day_weight: Int
+
+            weights.forEach {
+                day_weight = day_date.format(Calendar.getInstance().getTime()).toInt()
+                if(day_weight == day_now)
+                {
+                    weightValue = it.weight!!
+                }
+            }
+
+            var weightValueText = view?.findViewById<TextView>(R.id.textViewKgValue)
+
+            if (weightValueText != null) {
+                weightValueText.text = weightValue.toString()
+            }
+        }
+
+        var calories: List<Calories>? = userMain?.userId?.let { myDatabase?.DAO()?.getCaloriesWithUserId(it) }
+        var progressBarCalorie = view?.findViewById<ProgressBar>(R.id.progressBarCalories)
+        var caloriesValue: Long = 0
+
+        if (info != null) {
+            if (progressBarCalorie != null) {
+                progressBarCalorie.max = (info.caloriesIntake)?.toInt()!!
+            }
+        }
+
+        if(calories != null)
+        {
+            // queremos mostrar a informaçao caso ja tenhamos uma quantidade de agua adicionada
+            var rightNow = Calendar.getInstance()
+            var day_date = SimpleDateFormat("dd")
+            var day_now: Int = day_date.format(rightNow.getTime()).toInt()
+
+            var day_calories: Int
+
+            calories.forEach {
+                day_calories = day_date.format(Calendar.getInstance().getTime()).toInt()
+                if(day_calories == day_now)
+                {
+                    caloriesValue += it.calories!!
+                }
+            }
+
+            var caloriesValueText = view?.findViewById<TextView>(R.id.textViewCaloriesValue)
+
+            if (caloriesValueText != null) {
+                caloriesValueText.text = caloriesValue.toString()
+            }
+
+            if (progressBarCalorie != null) {
+                progressBarCalorie.progress = caloriesValue.toInt()
+            }
+        }
+    }
+
+    override fun onResume() {
+
+        updateMetrics()
+
         super.onResume()
     }
 

@@ -22,6 +22,8 @@ data class Information(
     var age: Long? = null,
     var height: Long? = null,
     var gender: String? = null,
+    var caloriesIntake: Long? = null,
+    var waterIntake: Long? = null,
     var userId: Long? = null
 )
 
@@ -31,7 +33,7 @@ data class Weight(
     var weightId: Long? = null,
     var weight: Long? = null,
     var date: Date? = null,
-    var informationId: Long? = null
+    var userId: Long? = null
 )
 
 @Entity
@@ -39,6 +41,15 @@ data class Water(
     @PrimaryKey(autoGenerate = true)
     var waterId: Long? = null,
     var water: Long? = null,
+    var date: Date? = null,
+    var userId: Long? = null
+)
+
+@Entity
+data class Calories(
+    @PrimaryKey(autoGenerate = true)
+    var caloriesId: Long? = null,
+    var calories: Long? = null,
     var date: Date? = null,
     var userId: Long? = null
 )
@@ -53,12 +64,12 @@ data class UserAndInformation(
     val information: Information
 )
 
-// 1 -- N relationship: 1 information, N weights
+// 1 -- N relationship: 1 User, N weights
 data class InformationWithWeight(
-    @Embedded val information: Information,
+    @Embedded val user: User,
     @Relation(
-        parentColumn = "informationId",
-        entityColumn = "informationId"
+        parentColumn = "userId",
+        entityColumn = "userId"
     )
     val weights: List<Weight>
 )
@@ -71,6 +82,16 @@ data class userWithWater(
         entityColumn = "userId"
     )
     val waters: List<Water>
+)
+
+// 1 -- N relationship: 1 user, N Calories
+data class userWithCalories(
+    @Embedded val user: User,
+    @Relation(
+        parentColumn = "userId",
+        entityColumn = "userId"
+    )
+    val calories: List<Calories>
 )
 
 class Converters {

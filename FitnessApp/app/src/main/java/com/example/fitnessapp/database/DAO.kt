@@ -37,8 +37,14 @@ interface MyDao  {
     @Query("select * from weight where date = :dateInput")
     fun getWeight(dateInput: Date):Weight
 
+    @Query("select * from weight where userId = :userInput")
+    fun getWeightWithUserId(userInput: Long):List<Weight>
+
     @Query("select * from weight")
     fun getAllWeights(): List<Weight>
+
+    @Update
+    fun updateWeight(weight: Weight)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertWaters(vararg waters: Water)
@@ -51,4 +57,16 @@ interface MyDao  {
 
     @Query("select * from water")
     fun getAllWaters(): List<Water>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertCalories(vararg calories: Calories)
+
+    @Query("select * from calories where date = :dateInput")
+    fun getCalories(dateInput: Date):Calories
+
+    @Query("select * from calories where userId = :userInput")
+    fun getCaloriesWithUserId(userInput: Long):List<Calories>
+
+    @Query("select * from calories")
+    fun getAllCalories(): List<Calories>
 }

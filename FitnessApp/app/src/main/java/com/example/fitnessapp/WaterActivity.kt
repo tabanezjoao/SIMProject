@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import com.example.fitnessapp.database.Information
 import com.example.fitnessapp.database.MyDatabase
 import com.example.fitnessapp.database.User
 import com.example.fitnessapp.database.Water
@@ -38,7 +39,13 @@ class WaterActivity : AppCompatActivity() {
 
         var myDatabase: MyDatabase = MyDatabase.build(applicationContext)
 
+        var info: Information? = userMain!!.userId?.let { myDatabase.DAO().getInformation(it) }
+
         var waters: List<Water>? = userMain?.userId?.let { myDatabase.DAO().getWatersWithUserId(it) }
+
+        if (info != null) {
+            progressBarWater.max = (info.waterIntake)?.toInt()!!
+        }
 
         if(waters != null)
         {

@@ -62,7 +62,6 @@ class SensorModel: SensorEventListener {
             }
 
             currentSteps.value = currentStepsNow
-
         }
     }
 
