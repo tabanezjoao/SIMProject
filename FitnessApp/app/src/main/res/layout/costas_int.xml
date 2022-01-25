@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CAFDF6">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Treino de Costas Intermédio"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="93dp"
+        android:layout_height="96dp"
+        app:srcCompat="@drawable/costas1"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="90dp" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="93dp"
+        android:layout_height="96dp"
+        app:srcCompat="@drawable/costas2"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="207dp" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="88dp"
+        android:layout_height="92dp"
+        app:srcCompat="@drawable/costas3"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="332dp" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="88dp"
+        android:layout_height="86dp"
+        app:srcCompat="@drawable/costas4"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="449dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="212dp"
+        android:layout_height="30dp"
+        android:text="Contração romboide"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="449dp" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x18"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="487dp" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="244dp"
+        android:layout_height="32dp"
+        android:text="Postura Gato-Vaca"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="332dp" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="45 segundos"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="372dp" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tesoura com os braços"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="207dp" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="60 segundos"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="246dp" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flexão de tríceps pronado"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="90dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x21"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="127dp" />
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CAFDF6">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="João Patricio"
+        android:textColor="#000000"
+        android:textSize="19sp"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="274dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mykyta Deyneha"
+        android:textColor="#000000"
+        android:textSize="19sp"
+        tools:layout_editor_absoluteX="239dp"
+        tools:layout_editor_absoluteY="443dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22 anos"
+        android:textColor="#000000"
+        android:textSize="19sp"
+        tools:layout_editor_absoluteX="239dp"
+        tools:layout_editor_absoluteY="479dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22 anos"
+        android:textColor="#000000"
+        android:textSize="19sp"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="310dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="David Garcias"
+        android:textColor="#000000"
+        android:textSize="19sp"
+        tools:layout_editor_absoluteX="239dp"
+        tools:layout_editor_absoluteY="71dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="23 anos"
+        android:textColor="#000000"
+        android:textSize="19sp"
+        tools:layout_editor_absoluteX="239dp"
+        tools:layout_editor_absoluteY="108dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="146dp"
+        android:layout_height="138dp"
+        app:srcCompat="@drawable/nez"
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_editor_absoluteY="232dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="150dp"
+        android:layout_height="340dp"
+        app:srcCompat="@drawable/vid"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="-55dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="155dp"
+        android:layout_height="313dp"
+        app:srcCompat="@drawable/kyta"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="317dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
