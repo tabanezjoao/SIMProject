@@ -1,6 +1,9 @@
 package com.example.fitnessapp
 
 import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
@@ -26,6 +29,11 @@ import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
+import java.util.*
+import kotlin.concurrent.timer
+import android.os.Build.VERSION.SDK_INT
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 
 class MainActivity : AppCompatActivity() {
     // esta variavel vai servir para guardar a informaçao princiapl do utilizador
@@ -38,10 +46,28 @@ class MainActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
     private val profileFragment = ProfileFragment()
     private val settingsFragment = SettingsFragment()
+    val CHANNEL_ID = "channelID"
+    val CHANNEL_NAME = "channelName"
+    val NOTIFICATION_ID = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        createNotificationChannel()
+        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setContentTitle("Titulo Notification")
+            .setContentText("This is the content text")
+            .setSmallIcon(R.drawable.ic_sunny)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .build()
+
+        val notificationManager = NotificationManagerCompat.from(this)
+
+        val btnShowNotification = findViewById<Button>(R.id.btnShowNotification)
+        btnShowNotification.setOnClickListener{
+            notificationManager.notify(NOTIFICATION_ID, notification)
+        }
 
         val userFound = intent.extras?.get("user") as User
 
@@ -65,6 +91,18 @@ class MainActivity : AppCompatActivity() {
         val sensorModel = SensorModel()
         
         Toast.makeText(this, sensorModel.statusMessage, Toast.LENGTH_SHORT).show()
+    }
+
+    fun createNotificationChannel() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_DEFAULT).apply {
+                lightColor = Color.GREEN
+                enableLights(true)
+            }
+            val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            manager.createNotificationChannel(channel)
+        }
     }
 
     private fun replaceWithHomeFragment(fragment : HomeFragment)

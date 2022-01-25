@@ -3,6 +3,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/about_us.xml" value="0.264" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/activity_calories.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/activity_information.xml" value="0.20742753623188406" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/activity_login_proceed.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/activity_password_recovery.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/activity_water.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/avaliar.xml" value="0.4" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/avancado.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/braco_avan.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/braco_ini.xml" value="0.264" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/braco_int.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/costas_avan.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/costas_ini.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/costas_int.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/fragment_settings.xml" value="0.264" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/iniciante.xml" value="0.264" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/intermedio.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/peito_avan.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/peito_ini.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/peito_int.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/perna_avan.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/perna_init.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/perna_int.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SIMProject2/FitnessApp/app/src/main/res/layout/privacidade.xml" value="0.4" />
         <entry key="..\:/Users/mykyt/AndroidStudioProjects/FitnessApp/app/src/main/res/drawable/custom_button.xml" value="0.3828125" />
         <entry key="..\:/Users/mykyt/AndroidStudioProjects/FitnessApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/mykyt/AndroidStudioProjects/FitnessApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />

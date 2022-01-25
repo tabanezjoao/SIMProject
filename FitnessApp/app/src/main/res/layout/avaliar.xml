@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CAFDF6">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diga-nos o que acha da sua "
+        android:textColor="#000000"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="29dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F   TNESS APP"
+        android:textColor="#000000"
+        android:textSize="45sp"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="82dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="265dp"
+        android:layout_height="291dp"
+        android:background="#1B404040"
+        app:boxBackgroundColor="#FF9800"
+        app:boxBackgroundMode="filled"
+        tools:layout_editor_absoluteX="73dp"
+        tools:layout_editor_absoluteY="177dp">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="64dp"
+        android:layout_height="117dp"
+        android:rotation="90"
+        app:srcCompat="@drawable/dumbbell"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="53dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar"
+        android:backgroundTint="@color/black"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="512dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

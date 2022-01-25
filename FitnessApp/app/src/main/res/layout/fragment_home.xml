@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.HomeFragment">
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".fragments.HomeFragment"
+    android:background="#CAFDF6">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -15,6 +20,7 @@
         android:textColor="#BA6846E1"
         android:drawableStart="@drawable/ic_sunny"
         android:drawablePadding="5dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewGreet"
         app:layout_constraintHorizontal_bias="0"
         android:layout_marginLeft="30dp"
@@ -64,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewMetrics"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/exercicios">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewCalories"
@@ -368,4 +374,64 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/exercicios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exercicios"
+        android:layout_marginTop="80dp"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonIniciante"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewsInfo" />
+
+    <ImageButton
+        android:id="@+id/buttonIniciante"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Iniciante"
+        android:background="@drawable/iniciante"
+        app:layout_constraintBottom_toTopOf="@+id/buttonIntermedio"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exercicios" />
+
+    <ImageButton
+        android:id="@+id/buttonIntermedio"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:text="Intermédio"
+        android:background="@drawable/intermedio"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="583dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAvançado"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIniciante"/>
+    />
+
+    <ImageButton
+        android:id="@+id/buttonAvançado"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:text="Avançado"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="90dp"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="546dp"
+        android:background="@drawable/avancado"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIntermedio"/>
+    />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
